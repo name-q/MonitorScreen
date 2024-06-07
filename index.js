@@ -1,5 +1,5 @@
 const screenshot = require('screenshot-desktop');
-const { createCanvas, loadImage } = require('canvas');
+const { createCanvas, loadImage } = require('@napi-rs/canvas');
 const OSS = require('ali-oss');
 
 // 配置阿里云 OSS
