@@ -1,17 +1,31 @@
 {
-  "name": "screenshot",
+  "name": "monitor-screen",
   "version": "1.0.0",
-  "description": "",
+  "description": "monitor screen to oss",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "build": "pkg ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "name-q<1620206666@qq.com>",
+  "license": "MIT",
   "dependencies": {
     "ali-oss": "^6.20.0",
     "canvas": "^2.11.2",
     "screenshot-desktop": "^1.15.0"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "scripts": "index.js",
+    "WARNING": "This specifies the packaged node version and corresponding target platform ,example node12-macos-x64 or node14-win-arm64:",
+    "targets": [
+      "node18-macos-x64"
+    ],
+    "assets": [
+      "com.qy.screenshot.plist"
+    ]
   }
 }
