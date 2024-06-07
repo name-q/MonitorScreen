@@ -1,8 +1,6 @@
 const screenshot = require('screenshot-desktop');
-const path = require('path');
 const { createCanvas, loadImage } = require('canvas');
 const OSS = require('ali-oss');
-const fs = require('fs');
 
 // 配置阿里云 OSS
 const client = new OSS({
