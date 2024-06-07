@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.qy.screenshot</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/monitor-screen</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/tmp/com.qy.screenshot.err</string>
+    <key>StandardOutPath</key>
+    <string>/tmp/com.qy.screenshot.out</string>
+</dict>
+</plist>
