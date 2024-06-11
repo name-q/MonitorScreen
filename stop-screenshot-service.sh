@@ -8,8 +8,23 @@ fi
 
 # plist 文件名
 PLIST_FILE="com.qy.screenshot.plist"
+USER_HOME=$(eval echo ~${SUDO_USER})
+PLIST_PATH="$USER_HOME/Library/LaunchAgents/$PLIST_FILE"
+
+# 检查文件是否存在
+if [ ! -f "$PLIST_PATH" ]; then
+  echo "找不到 plist 文件：$PLIST_PATH"
+  exit 1
+fi
+
+# 获取当前用户ID
+USER_ID=$(id -u $SUDO_USER)
 
 # 停止并卸载服务
-launchctl unload "$HOME/Library/LaunchAgents/$PLIST_FILE"
+launchctl bootout gui/$USER_ID "$PLIST_PATH"
 
-echo "服务已成功停止并卸载。"
+if [ $? -eq 0 ]; then
+  echo "服务已成功停止并卸载。"
+else
+  echo "无法停止并卸载服务，请检查错误信息。"
+fi

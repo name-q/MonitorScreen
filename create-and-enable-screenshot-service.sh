@@ -32,9 +32,6 @@ chmod +x "$TARGET_DIR/$EXECUTABLE"
 # 复制 plist 文件到 ~/Library/LaunchAgents 目录
 cp "$SCRIPT_DIR/$PLIST_FILE" "$HOME/Library/LaunchAgents/"
 
-# 停止并卸载服务（如果已经存在）
-launchctl unload "$HOME/Library/LaunchAgents/$PLIST_FILE"
-
 # 加载 plist 文件
 launchctl load "$HOME/Library/LaunchAgents/$PLIST_FILE"
 
