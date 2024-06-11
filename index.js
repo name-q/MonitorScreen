@@ -10,6 +10,24 @@ const client = new OSS({
   bucket: '<Your bucket>'
 });
 
+
+// YYYYMMDD
+function getCurrentDate() {
+  const date = new Date();
+
+  const year = date.getFullYear();
+  let month = date.getMonth() + 1; // Months are zero based
+  let day = date.getDate();
+
+  // Add leading zero to month and day if they are less than 10
+  month = month < 10 ? '0' + month : month;
+  day = day < 10 ? '0' + day : day;
+
+  return `${year}${month}${day}`;
+}
+
+const YYYYMMDD = getCurrentDate()
+
 const takeScreenshot = async () => {
   try {
     const img = await screenshot({ format: 'png' });
@@ -27,7 +45,7 @@ const takeScreenshot = async () => {
     const buffer = canvas.toBuffer('image/jpeg', { quality: 1 });
 
     // 上传到 OSS
-    const objectName = `screenshots/${Date.now()}.jpg`;
+    const objectName = `screenshots/${YYYYMMDD}/${Date.now()}.jpg`;
     const result = await client.put(objectName, buffer);
     console.log('Screenshot uploaded to OSS:', result.url);
   } catch (err) {
