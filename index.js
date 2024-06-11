@@ -33,7 +33,7 @@ const takeScreenshot = async () => {
     const img = await screenshot({ format: 'png' });
     const image = await loadImage(img);
 
-    const width = 1000; // 设置新的宽度
+    const width = 2000; // 设置新的宽度
     const scaleFactor = width / image.width;
     const height = image.height * scaleFactor;
 
